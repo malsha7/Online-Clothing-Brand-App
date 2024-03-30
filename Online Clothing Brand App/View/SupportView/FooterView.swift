@@ -13,10 +13,10 @@ struct FooterView: View {
             Image("Feminine Black Purple Brand Fashion Logo-2")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .padding(.bottom, 10)
-            Image("logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+                .padding(.bottom, 6)
+//            Image("logo")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
         }
     }
 }
