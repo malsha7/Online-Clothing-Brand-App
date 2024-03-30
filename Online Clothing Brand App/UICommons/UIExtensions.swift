@@ -85,6 +85,9 @@ extension Color {
         return Color(hex: "f7b97a")
     }
     
+    static var Default: Color {
+           return Color(hex: "A97B0B")
+       }
     
     
     init(hex: String) {
