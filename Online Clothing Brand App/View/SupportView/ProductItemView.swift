@@ -35,6 +35,8 @@ struct ProductItemView: View {
                     .font(Font.custom("KumbhSans", size: 14))
                     .foregroundColor(Color.brown)
                     .padding(.top,2)
+                    
+                    
             }
           
         }

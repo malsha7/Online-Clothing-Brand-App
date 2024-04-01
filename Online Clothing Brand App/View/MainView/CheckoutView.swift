@@ -159,6 +159,7 @@ struct CheckoutView: View {
         
         SideMenu()
         SideCart()
+//      PaymentSuccessView()
     }
     
     @ViewBuilder
@@ -188,8 +189,8 @@ struct CheckoutView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.gray)
                 
-                Button {
-                    
+                NavigationLink {
+                    HomeView()
                 } label: {
                     HStack(alignment: .center, spacing: 10) {
                         Text("Back Home")

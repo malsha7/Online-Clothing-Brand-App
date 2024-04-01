@@ -17,10 +17,12 @@ struct WelcomeView: View {
             VStack{
                 Spacer()
                 
-                Image(systemName:"cat")
+                Image("Feminine Black Purple Brand Fashion Logo-2")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80, height: 80)
+                    .cornerRadius(20)
+                    .opacity(0.78)
                     .padding(.bottom, 15)
                 Text("Welcome  MyView Store")
                     .font(.customfont(.semibold, fontSize: 48))

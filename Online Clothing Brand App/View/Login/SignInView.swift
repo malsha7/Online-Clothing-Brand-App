@@ -9,10 +9,13 @@ import SwiftUI
 
 struct SignInView: View {
   
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
-    @StateObject var signInVM = SignInViewModel()
-   
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var isValidEmail: Bool = true
+    @State private var isValidPassword: Bool = true
+    @State private var signUpSuccess: Bool = false
+    
     var body: some View {
        
         ZStack{
@@ -26,10 +29,12 @@ struct SignInView: View {
             VStack{
                 
               
-                Image(systemName: "cat")
+                Image("Feminine Black Purple Brand Fashion Logo-2")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 30)
+                    .frame(width: 70)
+                    .cornerRadius(20)
+                    .opacity(0.78)
                     .padding(.bottom,  .screenWidth * 0.05)
                 
                 Spacer()
@@ -48,22 +53,35 @@ struct SignInView: View {
                     .padding(.bottom,  .screenWidth * 0.02)
                 
 
-                LineTextField(title: "Email",placholder: "Enter Email", txt: $signInVM.email, keyboardType: .emailAddress)
+                // Email text field
+                TextField("Enter Email", text: $email)
+                    .frame(width: 300)
                     .padding(20)
-                    .background(Color.white.opacity(0.6))
+                    .background(Color.white.opacity(0.7))
                     .cornerRadius(20)
-                    .padding()
-               
-                 
-                    .padding(.bottom, .screenWidth * 0.01)
-                
-                LineTextField(title: "Password",placholder: "Enter Password", txt: $signInVM.password, keyboardType: .namePhonePad)
-                    .padding(20)
-                    .background(Color.white.opacity(0.6))
-                    .cornerRadius(20)
-                    .padding()
-                
                     .padding(.bottom, .screenWidth * 0.04)
+                    .border(Color.red, width: isValidEmail ? 0 : 1) // Border color changes if email is invalid
+                
+                if !isValidEmail
+                {
+                    Text("Invalid Email Format")
+                    .foregroundColor(.red)
+                                }
+                
+                // Password text field
+                SecureField("Enter Password", text: $password)
+                    .frame(width: 300)
+                    .padding(20)
+                    .background(Color.white.opacity(0.7))
+                    .cornerRadius(20)
+                    .padding(.bottom, .screenWidth * 0.04)
+                    .border(Color.red, width: isValidPassword ? 0 : 1) // Border color changes if password is invalid
+                
+                if !isValidPassword
+                {
+                    Text("Password must contain Lowercase, Special character, Uppercase, Numbers")
+                    .foregroundColor(.red)
+                                }
                     
                 
                 RoundButton(title: "Sign In") {
